@@ -12,8 +12,9 @@ services:
       context: nginx/
       dockerfile: Dockerfile
     networks:
-      - webnet
+      # 关键：让 nginx 启动时优先加入包含 ckan 服务的网络，否则 nginx 在启动阶段解析 upstream "ckan" 会失败并退出
       - ckannet
+      - webnet
     depends_on:
       ckan:
         condition: service_healthy
@@ -41,6 +42,7 @@ services:
       redis:
         condition: service_healthy
     volumes:
+      - ./ckan.ini:/srv/app/ckan.ini
       - ckan_storage:/var/lib/ckan
       - pip_cache:/root/.cache/pip
       - site_packages:/usr/lib/python3.10/site-packages
