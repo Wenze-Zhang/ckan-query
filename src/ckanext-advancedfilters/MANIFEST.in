@@ -1,0 +1,3 @@
+include README.md
+include LICENSE
+recursive-include ckanext/advancedfilters *.html *.json *.js *.css *.png *.jpg *.gif

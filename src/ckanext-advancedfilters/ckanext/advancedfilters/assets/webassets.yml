@@ -1,0 +1,16 @@
+# WebAssets配置文件
+# 定义CSS和JavaScript资源
+
+advanced-filters-css:
+  output: ckanext-advancedfilters/%(version)s_advanced-filters.css
+  filters: cssrewrite
+  extra:
+    rel: stylesheet
+  contents:
+    - css/advanced-filters.css
+
+advanced-filters-js:
+  output: ckanext-advancedfilters/%(version)s_advanced-filters.js
+  filters: rjsmin
+  contents:
+    - js/advanced-filters.js

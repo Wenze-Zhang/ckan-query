@@ -1,0 +1,90 @@
+{#
+高级筛选面板 - 简化版（不使用webassets）
+#}
+
+<style>
+/* 内联CSS避免asset加载问题 */
+.advanced-filters-panel {
+  background: #f0f8ff;
+  border: 2px solid #4a90e2;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.advanced-filters-panel h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #2c3e50;
+}
+
+.advanced-filters-panel h3 i {
+  color: #4a90e2;
+  margin-right: 8px;
+}
+
+.filters-container {
+  margin-bottom: 15px;
+  min-height: 50px;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 12px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.filter-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-filter-action {
+  margin: 0;
+}
+</style>
+
+<div class="advanced-filters-panel" 
+     data-module="advanced-filters"
+     data-module-resource-id="{{ resource.id }}">
+  
+  <h3>
+    <i class="fa fa-filter"></i> 🎯 高级筛选条件
+    <small style="color: #7f8c8d; font-size: 14px;">(支持数值比较、范围筛选、模糊匹配)</small>
+  </h3>
+  
+  {# 筛选条件容器 #}
+  <div class="filters-container" id="filters-container">
+    <p style="color: #7f8c8d; font-style: italic;">
+      点击下方添加筛选条件按钮开始筛选数据
+    </p>
+  </div>
+  
+  {# 操作按钮 #}
+  <div class="filter-actions">
+    <button class="add-filter-btn btn btn-primary btn-sm" onclick="alert('筛选功能开发中...');">
+      <i class="fa fa-plus"></i> 添加筛选条件
+    </button>
+    
+    <button class="apply-filters-btn btn btn-success btn-sm">
+      <i class="fa fa-check"></i> 应用筛选
+    </button>
+    
+    <button class="clear-filters-btn btn btn-default btn-sm">
+      <i class="fa fa-times"></i> 清除所有
+    </button>
+  </div>
+</div>
+
+<script>
+// 临时禁用JavaScript模块初始化，避免错误
+console.log('Advanced Filters Panel loaded for resource: {{ resource.id }}');
+</script>

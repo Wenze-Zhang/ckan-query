@@ -1,0 +1,16 @@
+{#
+扩展的DataTables视图模板，集成高级筛选功能
+继承自原始的datatables_view.html
+#}
+
+{% ckan_extends %}
+
+{% block primary_content %}
+  {# 在数据表格之前插入高级筛选面板 #}
+  {% snippet 'snippets/advanced_filters_panel.html', 
+             resource=resource,
+             package=package %}
+  
+  {# 显示原始的datatables视图内容 #}
+  {{ super() }}
+{% endblock %}

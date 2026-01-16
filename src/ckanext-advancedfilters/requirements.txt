@@ -1,0 +1,2 @@
+# Requirements for ckanext-advancedfilters
+# Add any additional Python dependencies here

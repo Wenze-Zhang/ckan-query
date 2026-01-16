@@ -1,0 +1,19 @@
+#!/bin/bash
+# 安装advancedfilters插件
+
+set -e
+
+# 进入插件目录
+cd /srv/app/src_extensions/ckanext-advancedfilters
+
+# 安装插件
+echo "正在安装ckanext-advancedfilters..."
+pip install -e .
+
+# 安装依赖
+if [ -f requirements.txt ]; then
+    echo "正在安装插件依赖..."
+    pip install -r requirements.txt
+fi
+
+echo "ckanext-advancedfilters 安装完成!"

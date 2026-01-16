@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: ckanext-advancedfilters
+Version: 1.0.0
+Summary: Advanced filtering with comparison operators for CKAN DataStore views
+Home-page: https://github.com/yourusername/ckanext-advancedfilters
+Author: CKAN Developer
+Author-email: developer@example.com
+License: AGPL
+Keywords: CKAN filter datastore comparison operators
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: summary
+
+
+    This extension adds advanced filtering capabilities to CKAN DataStore views,
+    including comparison operators like greater than, less than, between, etc.
+    

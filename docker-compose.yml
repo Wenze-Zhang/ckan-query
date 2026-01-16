@@ -12,7 +12,6 @@ services:
       context: nginx/
       dockerfile: Dockerfile
     networks:
-      # 关键：让 nginx 启动时优先加入包含 ckan 服务的网络，否则 nginx 在启动阶段解析 upstream "ckan" 会失败并退出
       - ckannet
       - webnet
     depends_on:
@@ -46,6 +45,7 @@ services:
       - ckan_storage:/var/lib/ckan
       - pip_cache:/root/.cache/pip
       - site_packages:/usr/lib/python3.10/site-packages
+      - ./src/ckanext-advancedfilters:/srv/app/src/ckanext-advancedfilters
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "-qO", "/dev/null", "http://localhost:5000/api/action/status_show"]
@@ -58,6 +58,8 @@ services:
       - ckannet
       - dbnet
     image: ckan/ckan-base-datapusher:${DATAPUSHER_VERSION}
+    environment:
+      - MAX_CONTENT_LENGTH=10485760
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "-qO", "/dev/null", "http://localhost:8800"]
